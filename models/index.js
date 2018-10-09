@@ -5,3 +5,4 @@ mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/check_your_rep_
 // Model Exports
 
 module.exports.SavedMessages = require('./saved_messages.js');
+module.exports.Issue = require('./issue.js');
