@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 3000;
 const bodyParser = require('body-parser')
 
-//CORS middleware 
+//CORS middleware
 app.use(function(req, res, next) {
 	res.header("Access-Control-Allow-Origin", "*");
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
@@ -22,10 +22,34 @@ app.use(bodyParser.json());
 const db = require('./models');
 
 
+/************
+*Routes* --> All Routes/Endpoints
+*************/
+
+// Serve static files from public/
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public');
+});
+
+// HTML ENDPOINTS
+app.get('/homepage', (req, res) => {
+  res.sendFile(__dirname + '/views/index.html');
+});
+
+app.get('/profile', (req, res) => {
+  res.sendFile(__dirname + '/views/profile.html');
+});
+
+app.get('/rep_detail', (req, res) => {
+  res.sendFile(__dirname + '/views/rep_detail.html');
+});
+
+app.get('/results', (req, res) => {
+  res.sendFile(__dirname + '/views/results.html');
+});
 
 
-
-
+// JSON Routes 
 
 
 // Express server set up
