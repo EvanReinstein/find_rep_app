@@ -12,4 +12,4 @@ const SavedMessageSchema = new Schema({
 
 const SavedMessage = mongoose.model('SavedMessage', SavedMessageSchema);
 
-modules.exports = SavedMessage;
+module.exports = SavedMessage;
