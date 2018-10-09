@@ -27,29 +27,28 @@ const db = require('./models');
 *************/
 
 // Serve static files from public/
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public');
-});
+app.use(express.static(__dirname + '/public'));
+
 
 // HTML ENDPOINTS
-app.get('/homepage', (req, res) => {
+app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-app.get('/profile', (req, res) => {
-  res.sendFile(__dirname + '/views/profile.html');
-});
+// app.get('/profile', (req, res) => {
+//   res.sendFile(__dirname + '/views/profile.html');
+// });
 
-app.get('/rep_detail', (req, res) => {
-  res.sendFile(__dirname + '/views/rep_detail.html');
-});
+// app.get('/rep_detail', (req, res) => {
+//   res.sendFile(__dirname + '/views/rep_detail.html');
+// });
 
-app.get('/results', (req, res) => {
-  res.sendFile(__dirname + '/views/results.html');
-});
+// app.get('/results', (req, res) => {
+//   res.sendFile(__dirname + '/views/results.html');
+// });
 
 
-// JSON Routes 
+// JSON Routes
 
 
 // Express server set up
