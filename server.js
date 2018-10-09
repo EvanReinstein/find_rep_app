@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port =
 const bodyParser = require('body-parser')
 
 //CORS middleware
@@ -16,11 +16,15 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 /************
+*URL*
+*************/
+const representative_endpoint = `https://www.googleapis.com/civicinfo/v2/representatives?key=${config.apiKey}`;
+
+/************
 *DATABASE*
 *************/
 
 const db = require('./models');
-
 
 /************
 *Routes* --> All Routes/Endpoints
@@ -35,23 +39,25 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/views/index.html');
 });
 
-// app.get('/profile', (req, res) => {
-//   res.sendFile(__dirname + '/views/profile.html');
-// });
+app.get('/profile', (req, res) => {
+  res.sendFile(__dirname + '/views/profile.html');
+});
 
-// app.get('/rep_detail', (req, res) => {
-//   res.sendFile(__dirname + '/views/rep_detail.html');
-// });
+app.get('/rep_detail', (req, res) => {
+  res.sendFile(__dirname + '/views/rep_detail.html');
+});
 
-// app.get('/results', (req, res) => {
-//   res.sendFile(__dirname + '/views/results.html');
-// });
+app.get('/results', (req, res) => {
+  res.sendFile(__dirname + '/views/results.html');
+});
 
 
 // JSON Routes
 
+// Index of representatives
+app.get('/api')
 
 // Express server set up
-app.listen(port, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Express server is up and running on port 3000');
 });
