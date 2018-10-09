@@ -1,0 +1,21 @@
+MVP- Minimum Viable Product
+
+--> Application enables user to search for Representative by entering user address/ZIP on landing page.
+
+--> After entering the info described above, the Google Civics API delivers data based on location, results are displayed on page.
+
+--> User can click on the Representative of choice, to get detailed info.
+
+--> User is displayed with Representative info, phone, social media link, address and also given a form to SEND a message. User will be required to select a field, "ISSUE" with the options--- 
+
+1. "Economy"
+2. "Climate Change"
+3. "National Security"
+4. "Education"
+5. "Foreign Policy"
+6. "Healthcare"
+
+---> User submits --> letter is submitted, saved to DB and user is redirected to a profile page with saved versions of the submitted letter
+
+---> User can re-send, edit, or connect with other users in regards to the "ISSUE" of concern.
+
