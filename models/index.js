@@ -1,5 +1,5 @@
+// Set Up Mongo server
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/check_your_rep_app", { useNewUrlParser: true} );
 
-const UserSchema = new Schema;
-	
+// Model Exports
