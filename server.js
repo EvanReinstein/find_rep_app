@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 /************
 *URL*
 *************/
-const representative_endpoint = `https://www.googleapis.com/civicinfo/v2/representatives?address=${`index.html form input`}&key=${config.apiKey}`;
+// const representative_endpoint = `https://www.googleapis.com/civicinfo/v2/representatives?address=${`index.html form input`}&key=${config.apiKey}`;
 
 /************
 *DATABASE*
