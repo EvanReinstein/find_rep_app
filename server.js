@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
-const port =
-const bodyParser = require('body-parser')
+
+const bodyParser = require('body-parser');
 
 //CORS middleware
 app.use(function(req, res, next) {
@@ -18,7 +18,7 @@ app.use(bodyParser.json());
 /************
 *URL*
 *************/
-const representative_endpoint = `https://www.googleapis.com/civicinfo/v2/representatives?key=${config.apiKey}`;
+const representative_endpoint = `https://www.googleapis.com/civicinfo/v2/representatives?address=${`index.html form input`}&key=${config.apiKey}`;
 
 /************
 *DATABASE*
