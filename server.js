@@ -1,6 +1,8 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
+const request = require('request');
+const key = 'AIzaSyDVJVl2KwErAPbmzBwv6MMiFziM7l7cF3c';
 
 //CORS middleware
 app.use(function(req, res, next) {
@@ -32,6 +34,8 @@ const db = require('./models');
 // Serve static files from public/
 app.use(express.static(__dirname + '/public'));
 
+app.use(express.static(__dirname + '/vendors'));
+
 
 // HTML ENDPOINTS
 app.get('/', (req, res) => {
@@ -53,8 +57,24 @@ app.get('/results', (req, res) => {
 
 // JSON Routes
 
-// Index of representatives
-app.get('/api')
+app.get('/api/rep-info', (req, res) => {
+	console.log('Man dang');
+	// res.json();
+})
+
+app.post('/api/rep-info', (req, res) => {
+	// console.log("////////////////////////////");
+	// console.log(req);
+	// console.log("////////////////////////////");
+
+	const zip = req.body.zip;
+
+	request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${key}`, (err, res, body) => {
+		if (err) { console.log(`Error in server request to Civic API is: ${err}`) }
+		console.log(body, res);
+		res.json();
+	});
+});
 
 // Express server set up
 app.listen(process.env.PORT || 3000, () => {
