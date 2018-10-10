@@ -10,6 +10,22 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
+
+.bg-norm {
+    background: linear-gradient(-45deg #E73C7E, #23A6D5);
+    background-size: cover;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
+
+.bg-pro {
+    background: linear-gradient(-45deg #E73C7E, #23A6D5);
+    background-size: cover;
+    -webkit-animation: none;
+    -moz-animation: none;
+    animation: none;
+}
 /* ======================
 WEBFONTS
 ======================
@@ -128,6 +144,10 @@ header {
     margin: 50px 0;
 }
 
+.bg-pro header {
+    margin: 0px 0;
+}
+
 img {
     width: 100%;
 }
@@ -153,19 +173,49 @@ Form Elements
 form {
     margin: 0 auto;
     padding: 0 auto;
+    text-align: center;
+    text-shadow: none;
 }
 
 input {
-    margin: 0 auto;
+    color: #fff;
+    width: 85%;
+    font-family: 'comfortaaregular';
+    margin: 30px auto;
+    text-align: center;
+    /*line-height: 65px;*/
     background-color: rgba(255,255,255,0.25);
-    padding: 25px 50px;
-    border: 1px solid #ccc;
+    padding: 20px 55px 15px 55px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    /*filter: drop-shadow(2px 2px 2px blue);*/
+    font-size: 22px;
 }
 
 button{
-    color: #000;
+    font-family: 'comfortaalight';
+    letter-spacing: .1em;
+    margin: 0 auto;
+    color: #fff;
     display: block;
     text-align: center;
+    font-size: 18px;
+    padding: 15px 45px 10px 45px;
+    filter: drop-shadow(3px 2px 2px grey);
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #23A6D5;
+    opacity: .85;
+    transition: color .75s ease-in-out;
+    text-transform: uppercase;
+}
+
+button:hover {
+    background-color: rgba(255,255,255,0.25);
+    border: 2px solid grey,
+    opacity: .55;
+    color: #fff;
 }
 
 .left {
@@ -179,3 +229,186 @@ button{
 .logo {
     margin: 0 0 100px 0;
 }
+
+.smaller {
+    width: 125px;
+    height: 125px;
+    margin: 0 auto;
+    padding: 0 auto;
+    text-align: center;
+}
+
+.card-body {
+    color: #333;
+    width: 90%;
+    margin: 5px auto;
+    background-color: rgba(255, 255, 255, 0.65);
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.card {
+   width: 29.33%;
+   box-sizing: border-box;
+   background-color: rgba(255, 255, 255, 0.35);
+   border-radius: 5px;
+   margin: 15px 20px;
+   filter: drop-shadow(3px 2px 2px grey);
+   border: 1px solid #ccc;
+}
+
+.card img {
+    margin-left: 25%;
+    margin-top: 10px;
+}
+
+.social i {
+    display: inline;
+    position: relative;
+    top: inherit;
+    left: inherit;
+    padding: 0 0 0 10px;
+    margin: 15px 0 25px 10px;
+    text-align: center;
+    color: #23A6D5;
+    transition: color .75s ease-in-out;
+}
+
+.social i:hover {
+    color: #000;
+}
+
+.card-text {
+    font-family: 'comfortaabold';
+    color: #333;
+    font-size: 1.35em;
+}
+
+.btn-group {
+margin: 25px 0;
+}
+
+.jumbotron {
+    background-color: #23A6D5;
+}
+
+.logo2 {
+    width: 25%;
+    margin: 10px 0 0 30px;
+}
+
+.bg-norm .row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.profile-pic {
+    border-radius: 8px;
+    filter: drop-shadow(3px 3px 3px #lightgrey);
+    margin: -100px 25px 25px 0;
+}
+
+.profile-info {
+    text-align: left;
+    font-size: 150%;
+    padding: 25px;
+    margin: 0 auto;
+}
+
+.pro-title {
+    color: #fff;
+    text-align: left;
+}
+
+/* ----PROFILE PAGE FORM STUFF ---*/
+.form-profile{
+    font: 95% Arial, Helvetica, sans-serif;
+    max-width: 90%;
+    margin: 130px auto 0 auto;
+    padding: 16px;
+    background: #F7F7F7;
+    border-radius: 8px;
+    text-align: left;
+    filter: drop-shadow(3px 3px 3px lightgrey);
+/*    border-left: 2px solid #ccc;*/
+}
+
+.form-profile h1{
+    background: #43D1AF;
+    padding: 20px 0;
+    font-size: 140%;
+    font-weight: 300;
+    text-align: center;
+    color: #fff;
+    margin: -16px -16px 16px -16px;
+}
+
+.form-profile input[type="text"],
+.form-profile input[type="date"],
+.form-profile input[type="datetime"],
+.form-profile input[type="email"],
+.form-profile input[type="number"],
+.form-profile input[type="search"],
+.form-profile input[type="time"],
+.form-profile input[type="url"],
+.form-profile textarea,
+.form-profile select
+{
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    background: #fff;
+    margin-bottom: 4%;
+    border: 1px solid #ccc;
+    padding: 3%;
+    color: #555;
+    font: 95% Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+.form-profile input[type="text"]:focus,
+.form-profile input[type="date"]:focus,
+.form-profile input[type="datetime"]:focus,
+.form-profile input[type="email"]:focus,
+.form-profile input[type="number"]:focus,
+.form-profile input[type="search"]:focus,
+.form-profile input[type="time"]:focus,
+.form-profile input[type="url"]:focus,
+.form-profile textarea:focus,
+.form-profile select:focus
+{
+    box-shadow: 0 0 5px #43D1AF;
+    padding: 3%;
+    border: 1px solid #43D1AF;
+}
+
+.form-profile input[type="submit"],
+.form-profile input[type="button"]{
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    width: 100%;
+    padding: 3%;
+    background: #43D1AF;
+    border-bottom: 2px solid #30C29E;
+    border-top-style: none;
+    border-right-style: none;
+    border-left-style: none;
+    color: #fff;
+}
+.form-profile input[type="submit"]:hover,
+.form-profile input[type="button"]:hover{
+    background: #2EBC99;
+}
+
+.form-profile textarea {
+    min-height: 150px;
+}
+
