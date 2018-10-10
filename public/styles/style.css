@@ -148,17 +148,28 @@ header {
     margin: 0px 0;
 }
 
+.bg-norm header {
+    margin: 0px 0;
+}
+
 img {
     width: 100%;
 }
 
-i {
+i  {
+    color: #fff;
     text-align: right;
     padding:20px;
     position: absolute;
     top: 20px;
     right: 20px;
+    transition: color .65s ease-in-out;
 }
+
+i:hover  {
+    color: ##23A6D5;
+}
+
 
 /* ======================
 Form Elements
@@ -238,6 +249,12 @@ button:hover {
     text-align: center;
 }
 
+/*
+==================================
+ ----CARD STUFF ---
+==================================
+ */
+
 .card-body {
     color: #333;
     width: 90%;
@@ -255,6 +272,10 @@ button:hover {
    margin: 15px 20px;
    filter: drop-shadow(3px 2px 2px grey);
    border: 1px solid #ccc;
+}
+
+.center {
+    text-align: center;
 }
 
 .card img {
@@ -321,7 +342,11 @@ margin: 25px 0;
     text-align: left;
 }
 
-/* ----PROFILE PAGE FORM STUFF ---*/
+/*
+==================================
+ ----PROFILE PAGE FORM STUFF ---
+==================================
+ */
 .form-profile{
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 90%;
@@ -410,5 +435,17 @@ margin: 25px 0;
 
 .form-profile textarea {
     min-height: 150px;
+}
+
+.edit-letter {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: opacity .75s ease-in-out;
+}
+
+.edit-letter:hover {
+    opacity: .65;
 }
 
