@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const SavedMessageSchema = new Schema({
+const SavedMessagesSchema = new Schema({
   content: String,
   representative: String,
   issue: {
@@ -10,6 +10,6 @@ const SavedMessageSchema = new Schema({
   }
 });
 
-const SavedMessage = mongoose.model('SavedMessage', SavedMessageSchema);
+const SavedMessages = mongoose.model('SavedMessages', SavedMessagesSchema);
 
-module.exports = SavedMessage;
+module.exports = SavedMessages;
