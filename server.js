@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
-const key = 'AIzaSyDVJVl2KwErAPbmzBwv6MMiFziM7l7cF3c';
+
 
 //CORS middleware
 app.use(function(req, res, next) {
