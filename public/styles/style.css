@@ -140,6 +140,43 @@ Layout
 ======================
 */
 
+.navbar.transparent.navbar-inverse .navbar-inner {
+    background: rgba(0,0,0,0.0);
+}
+
+.navbar {
+    padding-top: 15px;
+    background: none;
+    border: none;
+}
+
+.navbar-default {
+    background: none;
+}
+
+ul {
+    text-align: right;
+}
+
+ul li {
+    display: inline-block;
+    padding: 15px 15px;
+    list-style: none;
+}
+
+li a {
+    color: #fff;
+    transition: border .75s ease-in-out;
+}
+
+li a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    /*border-radius: 30px;*/
+    /*padding: 10px 30px;*/
+}
+
 header {
     margin: 50px 0;
 }
@@ -156,19 +193,28 @@ img {
     width: 100%;
 }
 
-i  {
+#hamburger  {
     color: #fff;
     text-align: right;
-    padding:20px;
+    padding: 0 20px 20px 20px;
     position: absolute;
     top: 20px;
     right: 20px;
     transition: color .65s ease-in-out;
 }
 
-i:hover  {
+#leter i:hover {
     color: ##23A6D5;
 }
+
+#letter i {
+    transition: color .5s ease-in-out;
+    cursor: pointer;
+}
+
+/*#hamburger:hover  {
+    color: #23A6D5;
+}*/
 
 
 /* ======================
@@ -449,3 +495,33 @@ margin: 25px 0;
     opacity: .65;
 }
 
+/*==================================
+ ----ADD COUNTER TO CART STYLE ---
+==================================*/
+#letter-container {
+  float: right;
+  width: 210px;
+  padding:0;
+  position: relative;
+}
+
+#letterCount {
+  position: absolute;
+  display: none;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
+.letter {
+  width: 31%;
+  float: left;
+  margin: 1%;
+}
+/*==================================
+==================================*/
