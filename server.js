@@ -63,7 +63,7 @@ app.get('/api/rep-info', (req, res) => {
 	console.log('Man dang');
 	// res.json();
 })
-
+// Special Post route that queries the API and sends info back to the front end
 app.post('/api/rep-info', (req, res) => {
 	// console.log("////////////////////////////");
 	// console.log(req);
@@ -79,6 +79,29 @@ app.post('/api/rep-info', (req, res) => {
 		// console.log(data.officials);
 	}).pipe(res)
 	// console.log(res)
+});
+			// Create reps in DB
+app.post('/api/rep-details', (req, res) => {
+	let repList = req.body.data;
+	console.log(repList);
+
+	db.Rep.deleteMany({}, (err, reps) => {
+		if (err) {console.log(`Error at rep deletion is: ${err}`)}
+		console.log('Deleted all reps!');
+
+		db.Rep.create(repList, (err, newRep) => {
+			if (err) {console.log(`Error at create new rep is: ${err}`)}
+			console.log('New rep created!');
+			// process.exit();
+		});
+	});
+});
+
+app.get('/api/rep-details', (req, res) => {
+	db.Rep.find( (err, reps) => {
+		if (err) {console.log(`Error at displaying all reps is: ${err}`)}
+		res.json(reps);
+	});
 });
 
 // Express server set up
