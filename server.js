@@ -71,11 +71,14 @@ app.post('/api/rep-info', (req, res) => {
 
 	const zip = req.body.zip;
 
-	request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${civKey}`, (err, res, body) => {
+	const src = request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${civKey}`, (err, res, body) => {
 		if (err) { console.log(`Error in server request to Civic API is: ${err}`) }
-		console.log(body, res);
-		// res.json();
-	});
+		const data = JSON.parse(body);
+		// src.pipe(data);
+		// console.log(body, res);
+		// console.log(data.officials);
+	}).pipe(res)
+	// console.log(res)
 });
 
 // Express server set up
