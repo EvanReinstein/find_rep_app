@@ -21,7 +21,21 @@ function grabZip(e) {
 		body: JSON.stringify(data) // Stringify form data object for fetch
 	})
 		.then(res => res.json())
-		.then(data => console.log(data.officials))
+		.then((data) => {
+			let repData = { data: data.officials };
+			console.log(repData)
+
+			$.ajax({
+				method: 'POST',
+				url: 'http://localhost:3000/api/rep-details',
+				data: repData,
+				success: () => console.log("Success!"),
+				error: () => console.log('Oh snap, things got weird!'),
+				complete: (e) => {
+					console.log('AJAX Completed!');
+				}
+			});
+		})
 		.catch(err => console.log(err));
 }
 
