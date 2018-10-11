@@ -140,6 +140,43 @@ Layout
 ======================
 */
 
+.navbar.transparent.navbar-inverse .navbar-inner {
+    background: rgba(0,0,0,0.0);
+}
+
+.navbar {
+    padding-top: 15px;
+    background: none;
+    border: none;
+}
+
+.navbar-default {
+    background: none;
+}
+
+ul {
+    text-align: right;
+}
+
+ul li {
+    display: inline-block;
+    padding: 15px 15px;
+    list-style: none;
+}
+
+li a {
+    color: #fff;
+    transition: border .75s ease-in-out;
+}
+
+li a:hover {
+    text-decoration: none;
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    /*border-radius: 30px;*/
+    /*padding: 10px 30px;*/
+}
+
 header {
     margin: 50px 0;
 }
@@ -148,17 +185,37 @@ header {
     margin: 0px 0;
 }
 
+.bg-norm header {
+    margin: 0px 0;
+}
+
 img {
     width: 100%;
 }
 
-i {
+#hamburger  {
+    color: #fff;
     text-align: right;
-    padding:20px;
+    padding: 0 20px 20px 20px;
     position: absolute;
     top: 20px;
     right: 20px;
+    transition: color .65s ease-in-out;
 }
+
+#leter i:hover {
+    color: ##23A6D5;
+}
+
+#letter i {
+    transition: color .5s ease-in-out;
+    cursor: pointer;
+}
+
+/*#hamburger:hover  {
+    color: #23A6D5;
+}*/
+
 
 /* ======================
 Form Elements
@@ -238,6 +295,12 @@ button:hover {
     text-align: center;
 }
 
+/*
+==================================
+ ----CARD STUFF ---
+==================================
+ */
+
 .card-body {
     color: #333;
     width: 90%;
@@ -255,6 +318,10 @@ button:hover {
    margin: 15px 20px;
    filter: drop-shadow(3px 2px 2px grey);
    border: 1px solid #ccc;
+}
+
+.center {
+    text-align: center;
 }
 
 .card img {
@@ -321,7 +388,11 @@ margin: 25px 0;
     text-align: left;
 }
 
-/* ----PROFILE PAGE FORM STUFF ---*/
+/*
+==================================
+ ----PROFILE PAGE FORM STUFF ---
+==================================
+ */
 .form-profile{
     font: 95% Arial, Helvetica, sans-serif;
     max-width: 90%;
@@ -412,3 +483,45 @@ margin: 25px 0;
     min-height: 150px;
 }
 
+.edit-letter {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: opacity .75s ease-in-out;
+}
+
+.edit-letter:hover {
+    opacity: .65;
+}
+
+/*==================================
+ ----ADD COUNTER TO CART STYLE ---
+==================================*/
+#letter-container {
+  float: right;
+  width: 210px;
+  padding:0;
+  position: relative;
+}
+
+#letterCount {
+  position: absolute;
+  display: none;
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: red;
+  color: white;
+  text-align: center;
+}
+
+.letter {
+  width: 31%;
+  float: left;
+  margin: 1%;
+}
+/*==================================
+==================================*/
