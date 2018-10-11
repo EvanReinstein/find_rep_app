@@ -24,3 +24,26 @@ function grabZip(e) {
 		.then(data => console.log(data))
 		.catch(err => console.log(err));
 }
+
+
+
+
+//////////////////////////////////////////////////////
+//Add -- Remove Items from cart
+//////////////////////////////////////////////////////
+var itemCount = 0;
+
+$('.add').click(function (){
+  itemCount ++;
+  $('#letterCount').html(itemCount).css('display', 'block');
+});
+
+$('.clear').click(function() {
+  itemCount = 0;
+  $('#letterCount').html('').css('display', 'none');
+  $('#letterItems').html('');
+});
+///////////////////////////////////////////////////////////
+
+
+

@@ -28,7 +28,23 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body class="bg-pro">
-<i class="fas fa-bars fa-4x"></i>
+    <div class="navbar transparent navbar-inverse navbar-fixed-top">
+        <nav class="navbar-inner">
+            <i id="hamburger" class="fas fa-bars fa-3x"></i>
+                <!-- Add Counter to LETTERS -->
+                  <div id="letter-container">
+                    <div id="letter">
+                    <i class="far fa-file-alt fa-2x"></i><!--onclick="window.location.href='/profile'-->
+                    </div>
+                  <span id="letterCount"></span>
+                </div>
+                <!-- clos eadd to letters -->
+                <ul>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+        </nav>
+    </div>
     <div class="col-md-6 left">
         <header>
             <img src="/images/branding.png" alt="" class="logo" />
@@ -56,17 +72,15 @@
             <input type="text" name="field1" placeholder="Your Name" />
             <input type="email" name="field2" placeholder="Email Address" />
             <textarea name="field3" placeholder="Dear Representative..."></textarea>
-            <input type="submit" value="Send Letter"  />
+            <input type="submit" value="Send Letter" class="add" />
             </form>
         </div>
     </div>
 
 <!-- Latest compiled and minified JavaScript -->
-    <script src="../config.js"></script>
+   <!--  <script src="../config.js"></script> -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
-    <script src="vendors/jquery.js"></script>
-    <script src="scripts/index.js"></script>
-    <script src="vendors/jquery.js"></script>
-    <script src="scripts/profile.js"></script>
+    <script src="/jquery.js"></script>
+    <script src="/scripts/app.js"></script>
 </body>
 </html>

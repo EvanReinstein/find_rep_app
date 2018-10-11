@@ -13,7 +13,23 @@
     <link rel="stylesheet" href="/styles/style.css">
 </head>
 <body class="bg-norm">
-        <i class="fas fa-bars fa-4x"></i>
+        <div class="navbar transparent navbar-inverse navbar-fixed-top">
+        <nav class="navbar-inner">
+            <i id="hamburger" class="fas fa-bars fa-3x"></i>
+                <!-- Add Counter to LETTERS -->
+                  <div id="letter-container">
+                    <div id="letter">
+                    <i class="far fa-file-alt fa-2x" onclick="window.location.href='/profile'"></i>
+                    </div>
+                  <span id="letterCount"></span>
+                </div>
+                <!-- clos eadd to letters -->
+                <ul>
+                    <li><a href="#">Log In</a></li>
+                    <li><a href="#">Sign Up</a></li>
+                </ul>
+        </nav>
+    </div>
         <header>
             <img src="/images/branding.png" alt="" class="logo2" />
         </header>
