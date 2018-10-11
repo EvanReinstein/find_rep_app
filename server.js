@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
-
+const key = config.key;
 
 //CORS middleware
 app.use(function(req, res, next) {
