@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const request = require('request');
-const key = config.key;
+const key = require('./config');
+const civKey = key.key;
+
 
 //CORS middleware
 app.use(function(req, res, next) {
@@ -69,10 +71,10 @@ app.post('/api/rep-info', (req, res) => {
 
 	const zip = req.body.zip;
 
-	request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${key}`, (err, res, body) => {
+	request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${civKey}`, (err, res, body) => {
 		if (err) { console.log(`Error in server request to Civic API is: ${err}`) }
 		console.log(body, res);
-		res.json();
+		// res.json();
 	});
 });
 
