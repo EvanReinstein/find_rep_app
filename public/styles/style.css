@@ -316,10 +316,13 @@ button:visited {
 
 .smaller {
     width: 125px;
-    height: 125px;
+    /*height: 125px;*/
     margin: 0 auto;
     padding: 0 auto;
     text-align: center;
+}
+
+.headshot {
 }
 
 /*

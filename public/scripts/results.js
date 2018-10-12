@@ -16,13 +16,17 @@ window.onload = function() {
 		repCards.empty();
 		//create HTML code to be appended to representative cards
 		let repCardsHtml = reps.map( (rep) => {
-			return `
+            //If line 2 doesn't exist, display empty string
+            let line2 = rep.address[0].line2 === undefined ? '' : `${rep.address[0].line2} `
+            //If part affiliation doesn't exist, display empty string
+            let party = rep.party === undefined ? 'None' : `${rep.party}`
+            return `
 			<div class="card mb-4 shadow-sm">
               <img class="card-img-top smaller" src="${rep.photoUrl[0]}" alt="Card image cap">
               <div class="card-body">
                   <h3 class="card-text">${rep.name}</h3>
-                  <p>Party Affiliation: ${rep.party}</p>
-                  <p>${rep.address[0].line1}, ${rep.address[0].line2}, ${rep.address[0].city}, ${rep.address[0].state}, ${rep.address[0].zip}</p>
+                  <p>Party Affiliation: ${ party }</p>
+                  <p>${rep.address[0].line1} ${ line2 }${rep.address[0].city}, ${rep.address[0].state}, ${rep.address[0].zip}</p>
                   <p>${rep.phones[0]}</p>
                   <p>${rep.urls[0]}</p>
                     <div class="social">
@@ -33,7 +37,7 @@ window.onload = function() {
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
 	                    <div class="btn-group">
-	                      <button type="button" class="btn btn-sm btn-outline-secondary">Message</button>
+	                      <button type="button" class="btn btn-sm btn-outline-secondary" data-id="${rep._id}">Message</button>
 	                    </div>
                     </div>
               </div>
