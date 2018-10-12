@@ -44,7 +44,7 @@ function grabZip(e) {
 			});
 		})
 		.catch(err => console.log(err));
-	window.location.href = "/results";
+	// window.location.href = "/results";
 }
 
 

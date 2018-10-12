@@ -41,7 +41,7 @@ window.onload = function() {
                         <input type="text" name="field1" placeholder="Your Name" />
                         <input type="email" name="field2" placeholder="Email Address" />
                         <textarea name="field3" placeholder="Dear Representative..."></textarea>
-                        <input type="submit" value="Send Letter" class="add" />
+                        <input type="submit" value="Send Letter" class="saveMessage" />
                         </form>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
@@ -55,6 +55,15 @@ window.onload = function() {
 		  repCards.append(repCardsHtml);
 
 	}
+// Save Message to database
+$('body').on('click', '.saveMessage', saveMessage);
+
+function saveMessage (e) {
+	e.preventDefault();
+	debugger;
+	formData = $(this).serialize(); //.serialize()
+	console.log(formData);
+}
 
 	function handleSuccess (json) {
 		reps = json;
