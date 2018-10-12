@@ -341,7 +341,7 @@ button:visited {
 }
 
 .card {
-   width: 29.33%;
+   flex: 1;
    box-sizing: border-box;
    background-color: rgba(255, 255, 255, 0.35);
    border-radius: 5px;
@@ -593,5 +593,16 @@ input:required:focus {
 
 :-moz-ui-invalid {
   box-shadow:none;
+}
+
+/* -- HIDDEN form on reuslts page */
+.revealCard {
+    flex: 1;
+}
+.hidden {
+    display: none;
+}
+.show {
+    display: block;
 }
 

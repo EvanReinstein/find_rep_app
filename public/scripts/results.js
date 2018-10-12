@@ -35,6 +35,15 @@ window.onload = function() {
                       <i class="fab fa-instagram"></i>
                       <i class="fab fa-linkedin"></i>
                     </div>
+                    <div class="form-profile hidden">
+                        <h1>Check Your Rep- Send a letter...</h1>
+                        <form>
+                        <input type="text" name="field1" placeholder="Your Name" />
+                        <input type="email" name="field2" placeholder="Email Address" />
+                        <textarea name="field3" placeholder="Dear Representative..."></textarea>
+                        <input type="submit" value="Send Letter" class="add" />
+                        </form>
+                    </div>
                     <div class="d-flex justify-content-between align-items-center">
 	                    <div class="btn-group">
 	                      <button type="button" class="btn btn-sm btn-outline-secondary" data-id="${rep._id}">Message</button>
