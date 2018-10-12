@@ -72,6 +72,14 @@ app.get('/api/rep-details', (req, res) => {
 	});
 });
 
+// INDEX route to display saved messages
+app.get('/api/saved-messages', (req, res) => {
+	db.SavedMessages.find( (err, messages) => {
+		if (err) {console.log(`Error at displaying saved messages: ${err}`)}
+			res.json(messages);
+	});
+});
+
 // Post route that queries the API and sends info back to the front end
 app.post('/api/rep-info', (req, res) => {
 
@@ -99,6 +107,18 @@ app.post('/api/rep-details', (req, res) => {
 		});
 	});
 });
+
+// Message Create Then Post
+app.post('/api/saved-messages', (req, res) => {
+	let message = req.body;
+
+	db.SavedMessages.create(message, (err, newMessage) => {
+		if (err) throw err;
+		res.json(newMessage);
+	});
+});
+
+
 
 // Express server set up
 app.listen(process.env.PORT || 3000, () => {

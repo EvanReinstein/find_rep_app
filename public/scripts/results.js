@@ -37,11 +37,11 @@ window.onload = function() {
                     </div>
                     <div class="form-profile hidden">
                         <h1>Check Your Rep- Send a letter...</h1>
-                        <form>
-                        <input type="text" name="field1" placeholder="Your Name" />
-                        <input type="email" name="field2" placeholder="Email Address" />
-                        <textarea name="field3" placeholder="Dear Representative..."></textarea>
-                        <input type="submit" value="Send Letter" class="saveMessage" />
+                        <form id="messageData">
+                            <input id="messageName" type="text" name="field1" placeholder="Your Name" />
+                            <input id="messageEmail" type="email" name="field2" placeholder="Email Address" />
+                            <textarea  id="messageText" name="field3" placeholder="Dear Representative..."></textarea>
+                            <input type="submit" value="Send Letter" id="saveMessage" />
                         </form>
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
@@ -56,14 +56,14 @@ window.onload = function() {
 
 	}
 // Save Message to database
-$('body').on('click', '.saveMessage', saveMessage);
+// $('body').on('click', '.saveMessage', saveMessage);
 
-function saveMessage (e) {
-	e.preventDefault();
-	debugger;
-	formData = $(this).serialize(); //.serialize()
-	console.log(formData);
-}
+// function saveMessage (e) {
+// 	e.preventDefault();
+// 	debugger;
+// 	formData = $(this).serialize(); //.serialize()
+// 	console.log(formData);
+// }
 
 	function handleSuccess (json) {
 		reps = json;
@@ -76,3 +76,41 @@ function saveMessage (e) {
 		console.log(`Error during render of rep-details is: ${err}`);
 	}
 }
+
+//////////////////////////////////////////////////////////////////////////////
+// Vanilla JS Grab form on submit data
+//////////////////////////////////////////////////////////////////////////////
+
+//Global Variables
+const baseURL = '/api/saved-messages';
+
+document.addEventListener('click',function(e){
+    if(e.target && e.target.id === 'saveMessage'){
+        e.preventDefault();
+        // debugger;
+        //Ids: messageName, messageText, messageEmail, messageData
+        const messageName = document.getElementById('messageName').value;
+        const messageEmail = document.getElementById('messageEmail').value;
+        const messageText = document.getElementById('messageText').value;
+        const data = {name: messageName, email: messageEmail, content: messageText};
+        console.log(data);
+
+        fetch(baseURL, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json; charset=utf-8",
+            },
+            body: JSON.stringify(data),
+            })
+        .then(res => res.json(res))
+        .catch(err => console.log(err));
+    }
+ })
+
+
+
+
+
+
+
+
