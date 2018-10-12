@@ -3,11 +3,8 @@ const Schema = mongoose.Schema;
 
 const SavedMessagesSchema = new Schema({
   content: String,
-  representative: String,
-  issue: {
-    type: Schema.Types.ObjectId,
-    ref: "Issue"
-  }
+  name: String,
+  email: String
 });
 
 const SavedMessages = mongoose.model('SavedMessages', SavedMessagesSchema);
