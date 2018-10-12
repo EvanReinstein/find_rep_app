@@ -1,5 +1,9 @@
 console.log('Hello World');
 
+/////////////////////////////
+// Landing Page -->  (A) Search for Officials and (B) Save them to the DB
+/////////////////////////////
+
 // On form submit, grab the zip and pass it along
 // $('#form').on('submit', grabZip);
 const zipForm = document.getElementById('form');
@@ -12,7 +16,8 @@ function grabZip(e) {
 	let zip = document.getElementById('form').elements[0].value;
 	// Prepare form data as an object to pass to body
 	let data = { zip };
-
+	// Part (A) Make a fet request to our server, which will then query the API for
+	// representative info.
 	fetch('http://localhost:3000/api/rep-info/', {
 		method: 'POST',
 		headers: {
@@ -21,7 +26,9 @@ function grabZip(e) {
 		body: JSON.stringify(data) // Stringify form data object for fetch
 	})
 		.then(res => res.json())
+		// Part (B) Save rep info, AKA repData to our database for use on the Search Results page
 		.then((data) => {
+			// data.officials is an array of Representatives and their info
 			let repData = { data: data.officials };
 			console.log(repData)
 

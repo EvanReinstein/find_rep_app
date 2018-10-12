@@ -33,7 +33,7 @@ const db = require('./models');
 *Routes* --> All Routes/Endpoints
 *************/
 
-// Serve static files from public/
+// Serve static files from public/ and /vendors
 app.use(express.static(__dirname + '/public'));
 
 app.use(express.static(__dirname + '/vendors'));
@@ -63,24 +63,27 @@ app.get('/api/rep-info', (req, res) => {
 	console.log('Man dang');
 	// res.json();
 })
-// Special Post route that queries the API and sends info back to the front end
+
+// INDEX route to display all rep info
+app.get('/api/rep-details', (req, res) => {
+	db.Rep.find( (err, reps) => {
+		if (err) {console.log(`Error at displaying all reps is: ${err}`)}
+		res.json(reps);
+	});
+});
+
+// Post route that queries the API and sends info back to the front end
 app.post('/api/rep-info', (req, res) => {
-	// console.log("////////////////////////////");
-	// console.log(req);
-	// console.log("////////////////////////////");
 
 	const zip = req.body.zip;
 
-	const src = request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${civKey}`, (err, res, body) => {
+	request(`https://www.googleapis.com/civicinfo/v2/representatives?address=${zip}&key=${civKey}`, (err, res, body) => {
 		if (err) { console.log(`Error in server request to Civic API is: ${err}`) }
 		const data = JSON.parse(body);
-		// src.pipe(data);
-		// console.log(body, res);
-		// console.log(data.officials);
-	}).pipe(res)
-	// console.log(res)
+	}).pipe(res);
 });
-			// Create reps in DB
+
+// POST route from post-fetch ajax call to create save Reps in database for use on Search Results page
 app.post('/api/rep-details', (req, res) => {
 	let repList = req.body.data;
 	console.log(repList);
@@ -94,13 +97,6 @@ app.post('/api/rep-details', (req, res) => {
 			console.log('New rep created!');
 			// process.exit();
 		});
-	});
-});
-
-app.get('/api/rep-details', (req, res) => {
-	db.Rep.find( (err, reps) => {
-		if (err) {console.log(`Error at displaying all reps is: ${err}`)}
-		res.json(reps);
 	});
 });
 
