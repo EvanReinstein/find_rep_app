@@ -246,7 +246,18 @@ input {
     border: 1px solid rgba(255,255,255,0.25);
     border-radius: 4px;
     /*filter: drop-shadow(2px 2px 2px blue);*/
-    font-size: 22px;
+    font-size: 20px;
+    letter-spacing: .05em;
+    transition: all .5s ease-in-out;
+    text-transform: uppercase;
+}
+
+input[type="text"]:focus {
+    margin: 30px auto;
+    font-family: 'comfortaabold';
+    box-shadow: 0px 0px 5px rgba(255,255,255,0.75);
+    border: 2px solid rgba(255,255,255,0.5);
+    font-size: 26px;
 }
 
 button{
@@ -257,19 +268,35 @@ button{
     display: block;
     text-align: center;
     font-size: 18px;
-    padding: 15px 45px 10px 45px;
+    padding: 12px 45px 8px 45px;
     filter: drop-shadow(3px 2px 2px grey);
-    border-radius: 25px;
+    border-radius: 35px;
     border: none;
     outline: none;
     background-color: #23A6D5;
     opacity: .85;
-    transition: color .75s ease-in-out;
+    transition: all .15s ease-in-out;
     text-transform: uppercase;
 }
 
 button:hover {
     background-color: rgba(255,255,255,0.25);
+    border: 2px solid grey,
+    opacity: .55;
+    color: #fff;
+}
+
+ /* unvisited link on click */
+button:active {
+    background-color: #E73C7E;
+    border: 2px solid grey,
+    opacity: .55;
+    color: #fff;
+}
+
+/* visited link */
+button:visited {
+   background-color: #23D5AB;
     border: 2px solid grey,
     opacity: .55;
     color: #fff;
@@ -483,17 +510,9 @@ margin: 25px 0;
     min-height: 150px;
 }
 
-.edit-letter {
-    height: 50%;
-    width: 50%;
-    margin: 0 auto;
-    cursor: pointer;
-    transition: opacity .75s ease-in-out;
-}
-
-.edit-letter:hover {
-    opacity: .65;
-}
+/* ------------------
+End profile form
+---------------------*/
 
 /*==================================
  ----ADD COUNTER TO CART STYLE ---
@@ -525,3 +544,51 @@ margin: 25px 0;
 }
 /*==================================
 ==================================*/
+
+.edit-letter {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    cursor: pointer;
+    transition: opacity .75s ease-in-out;
+}
+
+.edit-letter:hover {
+    opacity: .65;
+}
+
+.check {
+    height: 30px;
+    width: 30px;
+}
+
+.check:hover {
+    color: #E73C7E;
+}
+
+.check:active {
+    color:#blue;
+}
+
+input:required {
+    border: none;
+    outline: none;
+}
+
+input:required:focus {
+  border: none;
+  outline: none;
+}
+
+:invalid {
+  box-shadow: none;
+}
+
+:-moz-submit-invalid {
+  box-shadow: none;
+}
+
+:-moz-ui-invalid {
+  box-shadow:none;
+}
+
