@@ -25,7 +25,7 @@ window.onload = function() {
               <div class="image-cropper">
               <img id="photo${i}" class="card-img-top smaller clip-circle" src="${rep.photoUrl[0]}" alt="Card image cap">
               </div>
-              <div class="card-body">
+              <div id="card${i}" class="card-body">
                   <h3 id="repName${i}"class="card-text">${rep.name}</h3>
                   <p id="party${i}">Party Affiliation: ${ party }</p>
                   <p>${rep.address[0].line1} ${ line2 }${rep.address[0].city}, ${rep.address[0].state}, ${rep.address[0].zip}</p>
@@ -37,7 +37,7 @@ window.onload = function() {
                       <i class="fab fa-instagram"></i>
                       <i class="fab fa-linkedin"></i>
                     </div>
-                    <div class="form-profile hidden">
+                    <div class="form-profile reveal${i} hidden">
                         <h1>Check Your Rep- Send a letter...</h1>
                         <form id="messageData${i}">
                             <input id="messageName${i}" type="text" name="field1" placeholder="Your Name" />
@@ -48,7 +48,7 @@ window.onload = function() {
                     </div>
                     <div class="d-flex justify-content-between align-items-center">
 	                    <div class="btn-group">
-	                      <button type="button" class="btn btn-sm btn-outline-secondary" data="${rep._id}">Message</button>
+	                      <button id="hiddenFormReveal" type="button" class="btn btn-sm btn-outline-secondary" data-id="${i}">Message</button>
 	                    </div>
                     </div>
               </div>
@@ -76,6 +76,18 @@ window.onload = function() {
 
 // Global Variables
 const baseURL = '/api/saved-messages';
+
+document.addEventListener('click',function(e) {
+
+  if(e.target && e.target.id === 'hiddenFormReveal') {
+    e.preventDefault();
+    console.log('click worked');
+    let repNum = e.target.getAttribute('data-id');
+    // document.getElementById(`card${repNum}`).classList.remove('hidden');
+    $(`.reveal${repNum}`).removeClass(`hidden`);
+
+  }
+})
 
 document.addEventListener('click',function(e) {
 

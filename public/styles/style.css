@@ -672,7 +672,8 @@ input:required:focus {
     flex: 1;
 }
 .hidden {
-    display: none;
+    height: 0;
+    transition: height 1s ease-in-out;
 }
 .show {
     display: block;
