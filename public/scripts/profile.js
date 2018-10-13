@@ -37,12 +37,14 @@ window.onload = function () {
       console.log(message);
       return `
          <div class="card mb-4 shadow-sm">
-             <img class="card-img-top smaller" src="${message.photoUrl}" alt="Card image cap">
+         <div class="image-cropper">
+           <img class="card-img-top smaller clip-circle" src="${message.photoUrl}" alt="Card image cap">
+         </div>
            <div class="card-body">
                <h3 class="card-text">To: ${message.representative}</h3>
                <p class="center">${message.partyAffiliation}</p>
-               <p class="center">${message.content}</p>
                <p class="center">From: ${message.name}</p>
+               <p class="center">${message.content}</p>
                <div class="d-flex justify-content-between align-items-center">
                  <div class="btn-group">
                    <button type="button" class="btn btn-sm btn-outline-secondary changeBtn editBtn" data-id="${message._id}">Edit</button>
