@@ -25,8 +25,36 @@ window.onload = function () {
         error: deleteMessageFail,
         complete: () => { console.log('Delete Message AJAX request complete') }
       });
+    } else if ($(this).hasClass('editBtn')) {
+      console.log('Clicked edit button to /api/saved-messages/' + messageId);
+      $(this).parent().append(`
+        <form id="editRepMessage">
+          <br>
+          <textarea class="edit-message" name="content" placeholder="New Message Here"></textarea>
+          <button class="edit-formBtn edit-submit" data-id="${messageId}">Submit</button>
+          <button class="edit-formBtn edit-cancel">Cancel</button>
+        </form>`);
+      $('#editRepMessage').on('click', '.edit-formBtn', function (e) {
+        if ($(this).hasClass('edit-cancel')) {
+          e.preventDefault();
+          const form = $('#editRepMessage');
+          form.remove();
+        } else if ($(this).hasClass('edit-submit')) {
+          let data = $('form').serialize();
+          console.log(data);
+
+          $.ajax({
+            method: 'PUT',
+            data: data,
+            url: baseUrl + '/' + messageId,
+            success: () => {console.log('Updated message successfully!')},
+            error: (err) => {console.log(`Error at update message is: ${err}`)},
+            complete: () => {console.log('AJAX POST update completed!')}
+          });
+        }
+      });
     }
-  })
+  });
 
 // Functions for rendering saved messages
   function render () {
@@ -89,41 +117,4 @@ window.onload = function () {
     console.log('Failed to delete message');
   }
 
-
  }
-
-
-// Vanilla JS...
-// const render = (Messages) => {
-//   messageCards.innerHTML = '';
-//   form.children[0] = ''; //Name
-//   form.children[1] = ''; //email
-//   form.children[2] = ''; //Content
-//
-//   const message = messages.forEach( (message) => {
-//     messageCards.innerAdjacentHtml('afterbegin', `
-//   <div class="card mb-4 shadow-sm">
-//       <img class="card-img-top smaller" src="/images/headshot.png" alt="Card image cap">
-//     <div class="card-body">
-//         <h3 class="card-text">First Name, Last Name</h3>
-//         <p class="center">Representative, STATE, (D)</p>
-//         <img src="/images/edit-letter.png" alt="" class="edit-letter" />
-//         <div class="d-flex justify-content-between align-items-center">
-//           <div class="btn-group">
-//             <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-//             <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//     `)
-//   })
-// }
-//
-// // Get and render
-// const getMessages = () => {
-//   fetch(baseUrl)
-//     .then(res => res.json())
-//     .then(messages => render(messages))
-//     .catch(err => console.log(err));
-// }

@@ -118,6 +118,18 @@ app.post('/api/saved-messages', (req, res) => {
 	});
 });
 
+// UPDATE message
+app.put('/api/saved-messages/:id', (req, res) => {
+	let messageId = req.params.id;
+	let newMessage = req.body.message;
+	console.log(req.body);
+
+	db.SavedMessages.findOneAndUpdate({_id: messageId}, {$set: req.body}, { new: true }, (err, updatedMessage) => {
+		if (err) {console.log(`Backend error at updateBook is: ${err}`)}
+		res.json(updatedMessage);
+	});
+});
+
 // DELETE message
 app.delete('/api/saved-messages/:id', (req, res) => {
 	let messageId = req.params.id;
