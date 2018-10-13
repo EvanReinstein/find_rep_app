@@ -22,10 +22,10 @@ window.onload = function() {
             let party = rep.party === undefined ? 'None' : `${rep.party}`
             return `
 			<div class="card mb-4 shadow-sm">
-              <img class="card-img-top smaller" src="${rep.photoUrl[0]}" alt="Card image cap">
+              <img id="photo" class="card-img-top smaller" src="${rep.photoUrl[0]}" alt="Card image cap">
               <div class="card-body">
-                  <h3 class="card-text">${rep.name}</h3>
-                  <p>Party Affiliation: ${ party }</p>
+                  <h3 id="repName"class="card-text">${rep.name}</h3>
+                  <p id="party">Party Affiliation: ${ party }</p>
                   <p>${rep.address[0].line1} ${ line2 }${rep.address[0].city}, ${rep.address[0].state}, ${rep.address[0].zip}</p>
                   <p>${rep.phones[0]}</p>
                   <p>${rep.urls[0]}</p>
@@ -55,15 +55,6 @@ window.onload = function() {
 		  repCards.append(repCardsHtml);
 
 	}
-// Save Message to database
-// $('body').on('click', '.saveMessage', saveMessage);
-
-// function saveMessage (e) {
-// 	e.preventDefault();
-// 	debugger;
-// 	formData = $(this).serialize(); //.serialize()
-// 	console.log(formData);
-// }
 
 	function handleSuccess (json) {
 		reps = json;
@@ -84,15 +75,19 @@ window.onload = function() {
 //Global Variables
 const baseURL = '/api/saved-messages';
 
-document.addEventListener('click',function(e){
-    if(e.target && e.target.id === 'saveMessage'){
+document.addEventListener('click',function(e) {
+    if(e.target && e.target.id === 'saveMessage') {
         e.preventDefault();
-        // debugger;
+        
         //Ids: messageName, messageText, messageEmail, messageData
+				// const repName = document.getElementById('messageData').getAttribute('data-id');
+				const photo = document.getElementById('photo').getAttribute('src');
+				const repName = document.getElementById('repName').innerText;
+				const party = document.getElementById('party').innerText;
         const messageName = document.getElementById('messageName').value;
         const messageEmail = document.getElementById('messageEmail').value;
         const messageText = document.getElementById('messageText').value;
-        const data = {name: messageName, email: messageEmail, content: messageText};
+        const data = {photoUrl: photo, representative: repName, partyAffiliation: party, name: messageName, email: messageEmail, content: messageText};
         console.log(data);
 
         fetch(baseURL, {
@@ -106,11 +101,3 @@ document.addEventListener('click',function(e){
         .catch(err => console.log(err));
     }
  })
-
-
-
-
-
-
-
-

@@ -118,6 +118,17 @@ app.post('/api/saved-messages', (req, res) => {
 	});
 });
 
+// DELETE message
+app.delete('/api/saved-messages/:id', (req, res) => {
+	let messageId = req.params.id;
+	console.log(messageId);
+
+	db.SavedMessages.findByIdAndDelete(messageId, (err, deletedMessage) => {
+		if (err) {console.log(`Error at server delete route is: ${err}`)}
+		res.json(deletedMessage);
+	});
+});
+
 
 
 // Express server set up
