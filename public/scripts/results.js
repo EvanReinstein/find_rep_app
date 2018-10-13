@@ -22,7 +22,9 @@ window.onload = function() {
             let party = rep.party === undefined ? 'None' : `${rep.party}`
             return `
 			<div class="card mb-4 shadow-sm">
-              <img id="photo" class="card-img-top smaller" src="${rep.photoUrl[0]}" alt="Card image cap">
+              <div class="image-cropper">
+              <img id="photo" class="card-img-top smaller clip-circle" src="${rep.photoUrl[0]}" alt="Card image cap">
+              </div>
               <div class="card-body">
                   <h3 id="repName"class="card-text">${rep.name}</h3>
                   <p id="party">Party Affiliation: ${ party }</p>
@@ -72,13 +74,13 @@ window.onload = function() {
 // Vanilla JS Grab form on submit data
 //////////////////////////////////////////////////////////////////////////////
 
-//Global Variables
+// Global Variables
 const baseURL = '/api/saved-messages';
 
 document.addEventListener('click',function(e) {
     if(e.target && e.target.id === 'saveMessage') {
         e.preventDefault();
-        
+
         //Ids: messageName, messageText, messageEmail, messageData
 				// const repName = document.getElementById('messageData').getAttribute('data-id');
 				const photo = document.getElementById('photo').getAttribute('src');

@@ -15,7 +15,7 @@ const RepSchema = new Schema({
   urls: [String],
   photoUrl: {
     type: [String],
-    default: 'https://i.imgur.com/qNjFMSq.jpg'
+    default: '/images/user_default.png'
   }
 });
 

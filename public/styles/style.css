@@ -193,6 +193,30 @@ img {
     width: 100%;
 }
 
+.mobile-hide {
+    display: block;
+}
+
+@media screen and (max-width: 575px) {
+  .mobile-hide {
+    display: none;
+  }
+}
+
+.mobile-show {
+    display: none;
+}
+
+@media screen and (max-width: 575px) {
+  .mobile-show {
+    display: block;
+  }
+}
+
+.pad {
+    padding: 8.75%;
+}
+
 #hamburger  {
     color: #fff;
     text-align: right;
@@ -201,6 +225,14 @@ img {
     top: 20px;
     right: 20px;
     transition: color .65s ease-in-out;
+}
+
+@media screen and (max-width: 575px) {
+  #hamburger {
+    top: 5px;
+    right: 0px;
+    font-size: 30px;
+  }
 }
 
 #leter i:hover {
@@ -314,17 +346,6 @@ button:visited {
     margin: 0 0 100px 0;
 }
 
-.smaller {
-    width: 125px;
-    /*height: 125px;*/
-    margin: 0 auto;
-    padding: 0 auto;
-    text-align: center;
-}
-
-.headshot {
-}
-
 /*
 ==================================
  ----CARD STUFF ---
@@ -341,7 +362,7 @@ button:visited {
 }
 
 .card {
-   flex: 1;
+   width: 29.33%;
    box-sizing: border-box;
    background-color: rgba(255, 255, 255, 0.35);
    border-radius: 5px;
@@ -350,14 +371,65 @@ button:visited {
    border: 1px solid #ccc;
 }
 
+@media screen and (max-width: 1200px) {
+  .card {
+    width: 45.33%;
+  }
+}
+
+@media screen and (max-width: 970px) {
+  .card {
+    width: 42.33%;
+  }
+}
+
+@media screen and (max-width: 575px) {
+  .card {
+    width: 85.33%;
+  }
+}
+
 .center {
     text-align: center;
+}
+
+.clip-circle {
+  clip-path: circle(90px at center);
+}
+
+.smaller {
+    width: 180px;
+    margin: 0 auto;
+    padding: 0 auto;
 }
 
 .card img {
     margin-left: 25%;
     margin-top: 10px;
 }
+
+
+/*.image-cropper {
+    max-width: 100px;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+}
+
+.image-cropper img{
+    display: block;
+    margin: 0 auto;
+    padding: 0 auto;
+
+    height: auto;
+    width: 150%;
+    margin: 0 0 0 -20%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+}*/
 
 .social i {
     display: inline;
@@ -604,5 +676,17 @@ input:required:focus {
 }
 .show {
     display: block;
+}
+
+@media screen and (max-width: 575px) {
+  #letter-container {
+    display: none;
+  }
+  ul, ul {
+    display: none;
+  }
+  h1 {
+    margin: 0px auto;
+   }
 }
 
