@@ -383,11 +383,11 @@ button:visited {
   }
 }
 
-@media screen and (max-width: 575px) {
+/*@media screen and (max-width: 575px) {
   .card {
     width: 85.33%;
   }
-}
+}*/
 
 .center {
     text-align: center;
@@ -404,8 +404,8 @@ button:visited {
 }
 
 .card img {
-    margin-left: 25%;
-    margin-top: 10px;
+    margin: 10px 25%;
+    padding: 0 auto;
 }
 
 
@@ -473,9 +473,9 @@ margin: 25px 0;
 }
 
 .profile-pic {
-    border-radius: 8px;
+    /*border-radius: 8px;*/
     filter: drop-shadow(3px 3px 3px #lightgrey);
-    margin: -100px 25px 25px 0;
+    /*margin: -100px 25px 25px 0;*/
 }
 
 .profile-info {
@@ -668,9 +668,9 @@ input:required:focus {
 }
 
 /* -- HIDDEN form on reuslts page */
-.revealCard {
+/*.revealCard {
     flex: 1;
-}
+}*/
 .hidden {
     height: 0;
     transition: height 1s ease-in-out;
@@ -688,6 +688,27 @@ input:required:focus {
   }
   h1 {
     margin: 0px auto;
+    font-size: 75%;
    }
+
+
+   .card-img-top {
+        margin: 0;
+        padding: 0;
+    }
+   .card{
+    width: 90%;
+    margin: 25px auto;
+    padding: 0;
+   }
+    .card img {
+    margin: 0 0 0 22.5%;
+    padding: 0 auto;
+    /*left: 50%;*/
+
+
 }
+
+}
+
 

@@ -36,10 +36,14 @@ function grabZip(e) {
 				method: 'POST',
 				url: 'http://localhost:3000/api/rep-details',
 				data: repData,
-				success: () => console.log("Success!"),
+				// timeout: 1000,
+				success: function () {
+					console.log('Success!');
+				},
 				error: () => console.log('Oh snap, things got weird!'),
-				complete: (e) => {
-					console.log('AJAX Completed!');
+				complete: () => {
+					console.log('AJAX completed!')
+					// window.location.href = "/results"
 				}
 			});
 		})
@@ -50,19 +54,19 @@ function grabZip(e) {
 
 
 
-//////////////////////////////////////////////////////
-//Add -- Remove Items from cart
-//////////////////////////////////////////////////////
-var itemCount = 0;
+// //////////////////////////////////////////////////////
+// //Add -- Remove Items from cart
+// //////////////////////////////////////////////////////
+// var itemCount = 0;
 
-$('.add').click(function (){
-  itemCount ++;
-  $('#letterCount').html(itemCount).css('display', 'block');
-});
+// $('.add').click(function (){
+//   itemCount ++;
+//   $('#letterCount').html(itemCount).css('display', 'block');
+// });
 
-$('.clear').click(function() {
-  itemCount = 0;
-  $('#letterCount').html('').css('display', 'none');
-  $('#letterItems').html('');
-});
-///////////////////////////////////////////////////////////
+// $('.clear').click(function() {
+//   itemCount = 0;
+//   $('#letterCount').html('').css('display', 'none');
+//   $('#letterItems').html('');
+// });
+// ///////////////////////////////////////////////////////////
